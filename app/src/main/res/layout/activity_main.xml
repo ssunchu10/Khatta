@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/khaata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="0dp"
+        android:layout_y="105dp"
+        android:gravity="center"
+        android:text="K H A A T A"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="63dp"
+        tools:layout_editor_absoluteY="107dp" />
+
+    <TextView
+        android:id="@+id/signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="-2dp"
+        android:layout_y="191dp"
+        android:gravity="center"
+        android:text="S I G N  I N"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="65dp"
+        tools:layout_editor_absoluteY="188dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="-2dp"
+        android:layout_y="264dp"
+        android:gravity="left"
+        android:text="Username"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="256dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="3dp"
+        android:layout_y="296dp"
+        android:hint="Enter Username"
+        android:minHeight="48dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="283dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="1dp"
+        android:layout_y="348dp"
+        android:gravity="left"
+        android:text="Password"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="70dp"
+        tools:layout_editor_absoluteY="340dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="3dp"
+        android:layout_y="381dp"
+        android:hint="Enter Password"
+        android:minHeight="48dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="367dp" />
+
+    <Button
+        android:id="@+id/loginbutton"
+        style="@style/CardView.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="0dp"
+        android:layout_y="456dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:text="L O G I N"
+        android:textColor="#039BE5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/black"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="439dp" />
+
+    <Button
+        android:id="@+id/signupbutton"
+        style="@style/CardView.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="-3dp"
+        android:layout_y="516dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:text="  N E W   U S E R ?  \n S I G N U P "
+        android:textColor="#757575"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/black"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="516dp" />
+
+    <Button
+        android:id="@+id/adminloginbutton"
+        style="@style/CardView.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="-4dp"
+        android:layout_y="642dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:text="A D M I N  L O G I N"
+        android:textColor="#039BE5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/black"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="640dp" />
+
+</AbsoluteLayout>
