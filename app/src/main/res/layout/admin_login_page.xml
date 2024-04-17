@@ -58,6 +58,7 @@
         android:textSize="18sp" />
 
     <Button
+        android:id="@+id/admin_login_button"
         android:layout_width="match_parent"
         android:layout_height="71dp"
         android:layout_x="0dp"
