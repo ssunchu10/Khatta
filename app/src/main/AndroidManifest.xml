@@ -25,6 +25,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AdminLoginPage"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".NewUserLogin"
+            android:exported="true">
+        </activity>
+
+
+
     </application>
 
 </manifest>
