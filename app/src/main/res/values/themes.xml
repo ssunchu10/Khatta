@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Khattacom" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Khatta" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Khattacom" parent="Base.Theme.Khattacom" />
+    <style name="Theme.Khatta" parent="Base.Theme.Khatta" />
 </resources>
