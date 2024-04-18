@@ -1,4 +1,4 @@
-package com.example.khattacom;
+package com.example.khatta;
 
 import android.content.Context;
 
