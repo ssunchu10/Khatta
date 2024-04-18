@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Khatta</string>
+    <string name="k_h_a_a_t_a">K H A A T A</string>
+    <string name="l_o_g_i_n">U S E R \n L O G I N</string>
+    <string name="k_h_a_a_t_a_">K H A A T A</string>
+    <string name="s_i_g_n_i_n">S I G N I N</string>
+    <string name="username">Username</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="c_r_e_a_t_e_a_c_c_o_u_n_t">C R E A T E \n A C C O U N T</string>
 </resources>
