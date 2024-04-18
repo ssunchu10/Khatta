@@ -10,7 +10,7 @@
         android:layout_x="0dp"
         android:layout_y="122dp"
         android:gravity="center"
-        android:text="N E W  U S E R   A C C O U N T"
+        android:text="@string/c_r_e_a_t_e_a_c_c_o_u_n_t"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold" />

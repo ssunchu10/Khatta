@@ -13,127 +13,49 @@
         android:layout_height="wrap_content"
         android:layout_x="0dp"
         android:layout_y="105dp"
+        android:backgroundTint="@color/white"
         android:gravity="center"
-        android:text="K H A A T A"
+        android:text="@string/k_h_a_a_t_a"
         android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="63dp"
         tools:layout_editor_absoluteY="107dp" />
 
-    <TextView
-        android:id="@+id/signin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="-2dp"
-        android:layout_y="191dp"
-        android:gravity="center"
-        android:text="S I G N  I N"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="188dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="-2dp"
-        android:layout_y="264dp"
-        android:gravity="left"
-        android:text="Username"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="256dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="3dp"
-        android:layout_y="296dp"
-        android:hint="Enter Username"
-        android:minHeight="48dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="283dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="1dp"
-        android:layout_y="348dp"
-        android:gravity="left"
-        android:text="Password"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="70dp"
-        tools:layout_editor_absoluteY="340dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="3dp"
-        android:layout_y="381dp"
-        android:hint="Enter Password"
-        android:minHeight="48dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="367dp" />
-
     <Button
-        android:id="@+id/loginbutton"
+        android:id="@+id/signupButton"
         style="@style/CardView.Light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_x="0dp"
-        android:layout_y="456dp"
-        android:background="@color/white"
+        android:layout_y="350dp"
+        android:background="#F44336"
         android:backgroundTint="@color/white"
-        android:text="L O G I N"
-        android:textColor="#039BE5"
+        android:text="@string/c_r_e_a_t_e_a_c_c_o_u_n_t"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/black"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="439dp" />
+        tools:layout_editor_absoluteY="520dp" />
 
     <Button
-        android:id="@+id/signupbutton"
+        android:id="@+id/loginButton"
         style="@style/CardView.Light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_x="-3dp"
-        android:layout_y="516dp"
-        android:background="@color/white"
+        android:layout_x="0dp"
+        android:layout_y="450dp"
+        android:background="#FF5722"
         android:backgroundTint="@color/white"
-        android:text="  N E W   U S E R ?  \n S I G N U P "
-        android:textColor="#757575"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/black"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="516dp" />
-
-    <Button
-        android:id="@+id/adminloginbutton"
-        style="@style/CardView.Light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="-4dp"
-        android:layout_y="642dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:text="A D M I N  L O G I N"
-        android:textColor="#039BE5"
+        android:text="@string/l_o_g_i_n"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/black"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="640dp" />
+        tools:layout_editor_absoluteY="450dp" />
+
+
 
 </AbsoluteLayout>
