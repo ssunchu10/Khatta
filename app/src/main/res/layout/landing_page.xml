@@ -36,4 +36,15 @@
         android:gravity="center"
         android:textSize="30sp" />
 
+    <Button
+        android:id="@+id/update_users_button"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_x="0dp"
+        android:layout_y="564dp"
+        android:backgroundTint="@color/black"
+        android:text="U P D A T E \t\t U S E R S"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
 </AbsoluteLayout>

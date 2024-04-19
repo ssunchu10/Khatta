@@ -7,8 +7,6 @@
     import androidx.room.RoomDatabase;
     import androidx.sqlite.db.SupportSQLiteDatabase;
 
-    import com.example.khatta.User;
-
     import java.util.concurrent.ExecutorService;
     import java.util.concurrent.Executors;
 
@@ -30,23 +28,23 @@
                         public void onCreate(@NonNull SupportSQLiteDatabase db) {
                             super.onCreate(db);
                             databaseWriteExecutor.execute(() -> {
-                                UserDao userDao = instance.database.userDao();
-                                userDao.deleteAll(); // Optional: Clear existing data
+                                UserDao userDao = instance.database.getUserDAO();
+                                userDao.deleteAll();
 
                                 User user1 = new User();
                                 user1.setUsername("Sumit2003");
                                 user1.setPassword("chinalnotfound404");
-                                userDao.insert(user1);
+                                userDao.addUser(user1);
 
                                 User user2 = new User();
                                 user2.setUsername("Yash2002");
                                 user2.setPassword("chinalfound101");
-                                userDao.insert(user2);
+                                userDao.addUser(user2);
 
                                 User admin = new User();
                                 admin.setUsername("YS2000");
                                 admin.setPassword("chinalfoundandnotfound");
-                                userDao.insert(admin);
+                                userDao.addUser(admin);
                             });
                         }
                     })

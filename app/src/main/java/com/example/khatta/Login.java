@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
 
-    private Button loginButton, signupButton;
+    private Button loginButton;
     private TextView usernameTextView;
 
     @Override
@@ -50,13 +50,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-//        signupButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Login.this, NewUserLogin.class);
-//                startActivity(intent);
-//            }
-//        });
     }
     private boolean validateAdmin(String username, String password) {
 
