@@ -1,6 +1,7 @@
 package com.example.khatta;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
@@ -19,8 +20,16 @@ public class LandingPageActivity extends AppCompatActivity {
 
         usernameTextView = findViewById(R.id.usernameTextView);
 
-        String loggedInUsername = getLoggedInUsername();
-        usernameTextView.setText(loggedInUsername);
+        // Retrieve username from Shared Preferences
+        SharedPreferences sharedPreferences = getSharedPreferences("user_login_info", MODE_PRIVATE);
+        String loggedInUsername = sharedPreferences.getString("username", "");
+
+        // Check for empty username and display accordingly
+        if (loggedInUsername.isEmpty()) {
+            usernameTextView.setText("Not logged in");
+        } else {
+            usernameTextView.setText(loggedInUsername); // Display welcome message with username
+        }
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -30,9 +39,5 @@ public class LandingPageActivity extends AppCompatActivity {
                 finish();
             }
         }, SPLASH_DELAY);
-    }
-
-    private String getLoggedInUsername() {
-        return "USERS";
     }
 }

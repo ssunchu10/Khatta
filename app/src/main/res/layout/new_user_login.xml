@@ -26,6 +26,7 @@
         android:textStyle="bold"/>
 
     <EditText
+        android:id="@+id/new_username_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_x="0dp"
@@ -47,6 +48,7 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/new_password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_x="0dp"
@@ -68,6 +70,7 @@
         android:textStyle="bold" />
 
     <EditText
+        android:id="@+id/confirm_password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_x="0dp"
