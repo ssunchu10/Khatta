@@ -25,7 +25,6 @@ import java.util.concurrent.Executors;
 public class NewUserLogin extends Activity {
 
     private EditText newUsername, newPassword, confirmPassword;
-    private Button createAccountButton;
     AppDatabase userDB;
 
     @Override
@@ -36,8 +35,7 @@ public class NewUserLogin extends Activity {
         newUsername = findViewById(R.id.new_username_edit_text);
         newPassword = findViewById(R.id.new_password_edit_text);
         confirmPassword = findViewById(R.id.confirm_password_edit_text);
-        createAccountButton = findViewById(R.id.create_account_button);
-
+        Button createAccountButton = findViewById(R.id.create_account_button);
         RoomDatabase.Callback myCallback = new RoomDatabase.Callback() {
             @Override
             public void onCreate(@NonNull SupportSQLiteDatabase db) {
