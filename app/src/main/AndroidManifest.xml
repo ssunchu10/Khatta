@@ -17,23 +17,12 @@
             android:resource="@xml/new_user_login" />
 
 
-
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".LandingPageActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -47,7 +36,10 @@
             android:exported="true">
         </activity>
 
-
+        <activity
+            android:name=".Landing"
+            android:exported="true">
+        </activity>
 
     </application>
 

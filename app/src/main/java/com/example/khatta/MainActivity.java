@@ -7,13 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.khatta.database.AppDatabase;
-import com.example.khatta.database.DatabaseInitializer;
-
 
 public class MainActivity extends AppCompatActivity {
-
-    private AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         Button alreadyhaveanaccount = findViewById(R.id.already_have_an_account_button);
         Button createaccount = findViewById(R.id.create_account_button);
 
-        database = DatabaseInitializer.getInstance(this).getDatabase();//chaange it later
         createaccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
