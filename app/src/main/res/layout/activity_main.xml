@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_x="0dp"
-        android:layout_y="105dp"
+        android:layout_y="211dp"
         android:backgroundTint="@color/white"
         android:gravity="center"
         android:text="@string/k_h_a_a_t_a"
@@ -23,39 +23,37 @@
         tools:layout_editor_absoluteY="107dp" />
 
     <Button
-        android:id="@+id/signupButton"
+        android:id="@+id/already_have_an_account_button"
         style="@style/CardView.Light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_x="0dp"
-        android:layout_y="350dp"
-        android:background="#F44336"
-        android:backgroundTint="@color/white"
-        android:text="@string/c_r_e_a_t_e_a_c_c_o_u_n_t"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/black"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="520dp" />
-
-    <Button
-        android:id="@+id/loginButton"
-        style="@style/CardView.Light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="0dp"
-        android:layout_y="450dp"
+        android:layout_y="341dp"
         android:background="#FF5722"
         android:backgroundTint="@color/white"
-        android:text="@string/l_o_g_i_n"
+        android:text=" A L R E A D Y   H A V E  \n  A N   A C C O U N T "
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:backgroundTint="@color/black"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="450dp" />
 
-
+    <Button
+        android:id="@+id/create_account_button"
+        style="@style/CardView.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="0dp"
+        android:layout_y="431dp"
+        android:background="#000000"
+        android:backgroundTint="@color/white"
+        android:text=" C R E A T E \n A C C O U N T "
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:backgroundTint="#000000"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="520dp" />
 
 </AbsoluteLayout>

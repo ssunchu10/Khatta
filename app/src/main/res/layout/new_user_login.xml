@@ -10,7 +10,7 @@
         android:layout_x="0dp"
         android:layout_y="122dp"
         android:gravity="center"
-        android:text="@string/c_r_e_a_t_e_a_c_c_o_u_n_t"
+        android:text=" C R E A T E\n  A C C O U N T"
         android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold" />

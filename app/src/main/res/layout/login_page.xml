@@ -98,29 +98,12 @@
         android:layout_y="450dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
-        android:text="@string/l_o_g_i_n"
-        android:textColor="@color/white"
+        android:text=" L O G I N "
+        android:textColor="#039BE5"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/black"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="450dp" />
-
-    <Button
-        android:id="@+id/signupButton"
-        style="@style/CardView.Light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_x="0dp"
-        android:layout_y="550dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:text="@string/c_r_e_a_t_e_a_c_c_o_u_n_t"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/black"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="520dp" />
 
 </AbsoluteLayout>
