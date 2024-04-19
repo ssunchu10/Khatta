@@ -102,10 +102,8 @@ public class NewUserLogin extends Activity {
         executorService.execute(new Runnable() {
             @Override
             public void run() {
-                // background task
                 userDB.getUserDAO().addUser(user);
 
-                //on finishing task
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
