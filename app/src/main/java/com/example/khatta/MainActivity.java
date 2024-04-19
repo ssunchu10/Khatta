@@ -14,10 +14,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button alreadyhaveanaccount = findViewById(R.id.already_have_an_account_button);
-        Button createaccount = findViewById(R.id.create_account_button);
+        Button login = findViewById(R.id.already_have_an_account_button);
+        Button createAccount = findViewById(R.id.create_account_button);
 
-        createaccount.setOnClickListener(new View.OnClickListener() {
+        createAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, NewUserLogin.class);
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        alreadyhaveanaccount.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Login.class);
