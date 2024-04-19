@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -12,11 +14,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.example.khatta.database.AppDatabase;
+import com.example.khatta.database.User;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class NewUserLogin extends Activity {
 
     private EditText newUsername, newPassword, confirmPassword;
     private Button createAccountButton;
+    AppDatabase userDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +40,20 @@ public class NewUserLogin extends Activity {
         confirmPassword = findViewById(R.id.confirm_password_edit_text);
         createAccountButton = findViewById(R.id.create_account_button);
 
+        RoomDatabase.Callback myCallback = new RoomDatabase.Callback() {
+            @Override
+            public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                super.onCreate(db);
+            }
+
+            @Override
+            public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                super.onOpen(db);
+            }
+        };
+
+        userDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "userDB").addCallback(myCallback).build();
+
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,14 +61,14 @@ public class NewUserLogin extends Activity {
                 String password = newPassword.getText().toString().trim();
                 String confirm = confirmPassword.getText().toString().trim();
 
-                // Validate input fields
                 if (validateInput(username, password, confirm)) {
-                    // Store username in SharedPreferences
-                    storeUsername(username);
+                    User user = new User(username, password);
+                    addUserInBackground(user);
 
-                    // Display success toast and potentially navigate to another activity
+                    // Store username in SharedPreferences
+//                    storeUsername(username);
+
                     Toast.makeText(NewUserLogin.this, "Account created successfully!", Toast.LENGTH_SHORT).show();
-                    // You might want a different activity after account creation
                     Intent intent = new Intent(NewUserLogin.this, Login.class); // Or another activity
                     startActivity(intent);
                 }
@@ -71,20 +97,41 @@ public class NewUserLogin extends Activity {
             return false;
         }
 
-        return true; // All validations passed
+        return true;
     }
-    private void storeUsername(String username) {
-        SharedPreferences sharedPreferences = getSharedPreferences("user_login_info", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("username", username);
+//    private void storeUsername(String username) {
+//        SharedPreferences sharedPreferences = getSharedPreferences("user_login_info", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPreferences.edit();
+//        editor.putString("username", username);
+//
+//        // Use commit() for synchronous saving
+//        try {
+//            editor.commit();
+//            Log.d("TAG", "Username stored successfully: " + username);
+//        } catch (Exception e) {
+//            Log.e("TAG", "Error storing username: " + e.getMessage());
+//        }
+//    }
 
-        // Use commit() for synchronous saving
-        try {
-            editor.commit();
-            Log.d("TAG", "Username stored successfully: " + username);
-        } catch (Exception e) {
-            Log.e("TAG", "Error storing username: " + e.getMessage());
-        }
+    public void addUserInBackground(User user){
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                // background task
+                userDB.getUserDAO().addUser(user);
+
+                //on finishing task
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(NewUserLogin.this, "Added to Database", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
 
