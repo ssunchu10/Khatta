@@ -1,8 +1,10 @@
 package com.example.khatta;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,8 +21,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Landing extends AppCompatActivity {
-
-    private TextView usernameTextView;
     private AppDatabase userDB;
     private List<User> userList;
 
@@ -29,7 +29,11 @@ public class Landing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.landing_page);
 
+        TextView usernameTextView = findViewById(R.id.usernameTextView);
         usernameTextView = findViewById(R.id.usernameTextView);
+        ImageButton logout = findViewById(R.id.imageButton);
+        String username = getIntent().getStringExtra("username");
+        usernameTextView.setText(username);
         RoomDatabase.Callback myCallback = new RoomDatabase.Callback() {
             @Override
             public void onCreate(SupportSQLiteDatabase db) {
@@ -50,6 +54,10 @@ public class Landing extends AppCompatActivity {
             public void onClick(View v) {
                 getUserInBackground();
             }
+        });
+        logout.setOnClickListener(v -> {
+            Intent intent = new Intent(Landing.this, MainActivity.class);
+            startActivity(intent);
         });
     }
 
