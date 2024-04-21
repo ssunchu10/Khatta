@@ -1,11 +1,7 @@
 package com.example.khatta;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,24 +12,20 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.khatta.database.AppDatabase;
 import com.example.khatta.database.User;
-
-import java.util.List;
+import com.example.khatta.database.UserDao;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Landing extends AppCompatActivity {
+public class YourActivity extends AppCompatActivity {
+
     private AppDatabase userDB;
-    private List<User> userList;
+    private UserDao userDao;
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.landing_page);
-
-        TextView usernameTextView = findViewById(R.id.usernameTextView);
-        ImageButton logout = findViewById(R.id.imageButton);
-        String username = getIntent().getStringExtra("username");
-        usernameTextView.setText(username);
+        setContentView(R.layout.delete);
         RoomDatabase.Callback myCallback = new RoomDatabase.Callback() {
             @Override
             public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -48,14 +40,35 @@ public class Landing extends AppCompatActivity {
 
         userDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "userDB").addCallback(myCallback).build();
 
-        Button getUsersButton = findViewById(R.id.update_users_button);
-        getUsersButton.setOnClickListener(v -> {
-            Intent intent = new Intent(Landing.this, YourActivity.class);
-            startActivity(intent);
-        });
-        logout.setOnClickListener(v -> {
-            Intent intent = new Intent(Landing.this, MainActivity.class);
-            startActivity(intent);
+
+        Button deleteAllButton = findViewById(R.id.deleteAllButton);
+        deleteAllButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAllUsers();
+            }
         });
     }
+
+    private void deleteAllUsers() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(new Runnable() {
+            @Override
+            public void run() {
+                userDB.getUserDAO().deleteAll();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        showToast("All users deleted");
+                    }
+                });
+            }
+        });
+    }
+
+    private void showToast(String message) {
+        Toast.makeText(YourActivity.this, message, Toast.LENGTH_SHORT).show();
+
+    }
 }
+
