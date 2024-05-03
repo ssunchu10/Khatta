@@ -10,5 +10,10 @@
     <string name="enter_password">Enter Password</string>
     <string name="c_r_e_a_t_e_a_c_c_o_u_n_t">C R E A T E \n A C C O U N T</string>
     <string name="admin">Admin</string>
+    <string name="delete_user">D E L E T E\\t\\tU S E R</string>
+    <string name="confirm_delete_user">C O N F I R M</string>
+    <string name="yes">Y E S</string>
+    <string name="user_deleted">U S E R\\t\\tD E L E T E D</string>
+    <string name="no">N O</string>
     <string name="l_o_g_i_n_">L O G I N</string>
 </resources>

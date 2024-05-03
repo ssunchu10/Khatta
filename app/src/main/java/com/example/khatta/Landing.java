@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +29,6 @@ public class Landing extends AppCompatActivity {
         setContentView(R.layout.landing_page);
 
         TextView usernameTextView = findViewById(R.id.usernameTextView);
-        usernameTextView = findViewById(R.id.usernameTextView);
         ImageButton logout = findViewById(R.id.imageButton);
         String username = getIntent().getStringExtra("username");
         usernameTextView.setText(username);
@@ -67,13 +65,16 @@ public class Landing extends AppCompatActivity {
             userList = userDB.getUserDAO().getAllUser();
 
             runOnUiThread(() -> {
-                StringBuilder sb = new StringBuilder();
+
+                String[] users = new String[userList.size()];
+                int i = 0;
                 for (User user : userList) {
-                    sb.append(user.getUsername()).append(" : ").append(user.getPassword());
-                    sb.append("\n");
+                    users[i] = user.getUsername();
+                    i++;
                 }
-                String finalData = sb.toString();
-                Toast.makeText(Landing.this, finalData, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Landing.this, Users.class);
+                intent.putExtra("users", users);
+                startActivity(intent);
             });
         });
     }
