@@ -2,8 +2,8 @@ package com.example.khatta;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,9 +22,11 @@ import java.util.concurrent.Executors;
 
 public class Login extends AppCompatActivity {
 
-    EditText username, password;
-    private Button loginButton;
+    private EditText username, password;
     private AppDatabase userDB;
+    private CheckBox isAdmin;
+
+    private int flag = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,8 @@ public class Login extends AppCompatActivity {
 
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
-        loginButton = findViewById(R.id.loginButton);
+        Button loginButton = findViewById(R.id.loginButton);
+        isAdmin = (CheckBox) findViewById(R.id.checkButton);
 
         RoomDatabase.Callback myCallback = new RoomDatabase.Callback() {
             @Override
@@ -49,49 +52,41 @@ public class Login extends AppCompatActivity {
 
         userDB = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "userDB").addCallback(myCallback).build();
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String enteredUsername = username.getText().toString();
-                String enteredPassword = password.getText().toString();
-                validateCredentials(enteredUsername, enteredPassword);
+        loginButton.setOnClickListener(v -> {
+            String enteredUsername = username.getText().toString();
+            String enteredPassword = password.getText().toString();
+            validateCredentials(enteredUsername, enteredPassword);
 
-            }
         });
 
-    }
-    private boolean validateAdmin(String username, String password) {
-
-        return username.equals("admin") && password.equals("admin123");
     }
 
     public void validateCredentials(String username, String password) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                List<User> userList = userDB.getUserDAO().getAllUser();
-                boolean credentialsMatch = false;
-                for (User user : userList) {
-                    if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
-                        credentialsMatch = true;
-                        break;
-                    }
+        executorService.execute(() -> {
+            List<User> userList = userDB.getUserDAO().getAllUser();
+            boolean credentialsMatch = false;
+            for (User user : userList) {
+                if("admin2".equals(username) && "admin2".equals(password) && isAdmin.isChecked()) {
+                    flag = 1;
+                    credentialsMatch = true;
+                    break;
+                } else if (user.getUsername().equals(username) && user.getPassword().equals(password) && !isAdmin.isChecked()) {
+                    credentialsMatch = true;
+                    break;
                 }
-                boolean finalCredentialsMatch = credentialsMatch;
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (finalCredentialsMatch) {
-                            Intent intent = new Intent(Login.this, Landing.class);
-                            intent.putExtra("username", username);
-                            startActivity(intent);
-                        } else {
-                            Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
             }
+            boolean finalCredentialsMatch = credentialsMatch;
+            runOnUiThread(() -> {
+                if (finalCredentialsMatch) {
+                    Intent intent = new Intent(Login.this, Landing.class);
+                    intent.putExtra("username", username);
+                    intent.putExtra("admin", flag);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+                }
+            });
         });
     }
 

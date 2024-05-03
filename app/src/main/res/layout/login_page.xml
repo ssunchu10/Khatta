@@ -96,16 +96,25 @@
         style="@style/CardView.Light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_x="0dp"
-        android:layout_y="450dp"
+        android:layout_x="1dp"
+        android:layout_y="470dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
-        android:text=" L O G I N "
+        android:text="@string/l_o_g_i_n_"
         android:textColor="#039BE5"
         android:textSize="20sp"
         android:textStyle="bold"
         app:backgroundTint="@color/black"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="450dp" />
+
+    <CheckBox
+        android:id="@+id/checkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="-6dp"
+        android:layout_y="425dp"
+        android:text="@string/admin"
+        android:textColor="@color/white"/>
 
 </AbsoluteLayout>
