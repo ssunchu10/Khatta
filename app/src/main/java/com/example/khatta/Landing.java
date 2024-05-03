@@ -8,6 +8,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
@@ -36,12 +37,12 @@ public class Landing extends AppCompatActivity {
         usernameTextView.setText(username);
         RoomDatabase.Callback myCallback = new RoomDatabase.Callback() {
             @Override
-            public void onCreate(SupportSQLiteDatabase db) {
+            public void onCreate(@NonNull SupportSQLiteDatabase db) {
                 super.onCreate(db);
             }
 
             @Override
-            public void onOpen(SupportSQLiteDatabase db) {
+            public void onOpen(@NonNull SupportSQLiteDatabase db) {
                 super.onOpen(db);
             }
         };
