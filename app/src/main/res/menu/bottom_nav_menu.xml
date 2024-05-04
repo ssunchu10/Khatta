@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/add"
+        android:title="@string/add_expense"
+        android:icon="@drawable/baseline_add_24" />
+    <item
+        android:id="@+id/activity"
+        android:title="@string/activity"
+        android:icon="@drawable/baseline_local_activity_24" />
+    <item
+        android:id="@+id/logout"
+        android:title="@string/logout"
+        android:icon="@drawable/baseline_logout_24" />
+</menu>
