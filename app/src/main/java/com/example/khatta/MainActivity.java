@@ -2,14 +2,9 @@ package com.example.khatta;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.khatta.databinding.ActivityMainBinding;
@@ -44,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    public void setLogDetails(String logDetails) {
+        // Assuming you have an EditText named "details" in your activity layout
+        EditText editTextDetails = findViewById(R.id.details);
+        editTextDetails.setText(logDetails);
     }
 }

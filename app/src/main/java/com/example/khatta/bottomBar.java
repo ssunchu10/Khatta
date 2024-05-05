@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.khatta.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class bottomBar extends AppCompatActivity {
+public class bottomBar extends MainActivity {
 
     ActivityMainBinding binding;
     private BottomNavigationView bottomNavigationView;
