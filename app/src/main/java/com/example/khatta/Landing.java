@@ -29,7 +29,7 @@ public class Landing extends AppCompatActivity {
         setContentView(R.layout.landing_page);
 
         TextView usernameTextView = findViewById(R.id.usernameTextView);
-        ImageButton logout = findViewById(R.id.imageButton);
+        ImageButton logout = findViewById(R.id.logout_button);
         String username = getIntent().getStringExtra("username");
         usernameTextView.setText(username);
         int admin = getIntent().getIntExtra("admin", 0);

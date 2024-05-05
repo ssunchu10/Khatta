@@ -9,24 +9,26 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Users extends AppCompatActivity {
-    String[] users = getIntent().getStringArrayExtra("users");
     private ListView listView;
+    private String[] users;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.users);
         listView = findViewById(R.id.userList);
 
-//        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,
-//                R.layout.item, R.id.itemTextView, users);
-//        listView.setAdapter(arrayAdapter);
+        // Get intent extras here
+        users = getIntent().getStringArrayExtra("users");
 
-//        if (users != null && users.length > 0) {
-//            CustomAdapter adapter = new CustomAdapter(new String[]{users[0]});
-//            listView.setAdapter(adapter);
-//        } else {
-//            Toast.makeText(this, "No users found", Toast.LENGTH_SHORT).show();
-//        }
+        // Check if users is not null before using it
+        if (users != null && users.length > 0) {
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
+                    android.R.layout.simple_list_item_1, users);
+            listView.setAdapter(arrayAdapter);
+        } else {
+            Toast.makeText(this, "No users found", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void showConfirmationDialog(final String username) {

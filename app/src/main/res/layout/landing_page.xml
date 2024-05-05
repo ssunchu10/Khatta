@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img">
+    android:background="@drawable/background">
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_y="119dp"
         android:gravity="center"
         android:text=" K H A T T A"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -24,7 +24,7 @@
         android:layout_y="217dp"
         android:gravity="center"
         android:text=" W E L C O M E"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold" />
 
@@ -35,7 +35,7 @@
         android:layout_x="-2dp"
         android:layout_y="274dp"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -51,11 +51,11 @@
         android:textStyle="bold" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="113dp"
-        android:layout_height="112dp"
-        android:layout_x="299dp"
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="341dp"
         android:layout_y="0dp"
-        app:srcCompat="@drawable/logout" />
+        app:srcCompat="@drawable/baseline_cancel_presentation_24" />
 
 </AbsoluteLayout>
