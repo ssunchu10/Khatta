@@ -9,13 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
-    ArrayList<String> users;
-    public UserAdapter(ArrayList<String> userList) {
+    private OnItemClickListener listener;
+    List<String> users;
+    public UserAdapter(List<String> userList, OnItemClickListener listener) {
         this.users = userList;
+        this.listener = listener;
     }
-
     @NonNull
     @Override
     public UserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -33,11 +35,22 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
         return users.size();
     }
 
+    public interface OnItemClickListener {
+        void onItemClick(String username);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView username;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             username = itemView.findViewById(R.id.username);
+
+            itemView.setOnClickListener(v -> {
+                int position = getAdapterPosition();
+                if (position != RecyclerView.NO_POSITION && listener != null) {
+                    listener.onItemClick(users.get(position));
+                }
+            });
         }
     }
 }

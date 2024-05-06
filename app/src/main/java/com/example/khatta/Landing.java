@@ -63,9 +63,7 @@ public class Landing extends AppCompatActivity {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {
             userList = userDB.getUserDAO().getAllUser();
-
             runOnUiThread(() -> {
-
                 String[] users = new String[userList.size()];
                 int i = 0;
                 for (User user : userList) {

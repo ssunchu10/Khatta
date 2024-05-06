@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Users extends AppCompatActivity {
+public class Users extends AppCompatActivity implements UserAdapter.OnItemClickListener {
     private RecyclerView userListView;
     private String[] users;
 
@@ -24,7 +23,7 @@ public class Users extends AppCompatActivity {
         users = getIntent().getStringArrayExtra("users");
 
         if (users != null && users.length > 0) {
-            UserAdapter adapter = new UserAdapter(new ArrayList<>(Arrays.asList(users)));
+            UserAdapter adapter = new UserAdapter(Arrays.asList(users), this);
             userListView.setAdapter(adapter);
             userListView.setLayoutManager(new LinearLayoutManager(this));
         } else {
@@ -55,5 +54,7 @@ public class Users extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-
+    public void onItemClick(String username) {
+        showConfirmationDialog(username);
+    }
 }
