@@ -84,7 +84,7 @@ public class Login extends AppCompatActivity {
                     intent.putExtra("admin", flag);
                     startActivity(intent);
                 } else if (finalCredentialsMatch && flag == 0){
-                    Intent intent = new Intent(Login.this, YourActivity.class);
+                    Intent intent = new Intent(Login.this, Fragment.class);
                     intent.putExtra("username", username);
                     startActivity(intent);
                 }else {

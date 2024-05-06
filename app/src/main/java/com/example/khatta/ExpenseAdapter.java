@@ -9,8 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.khatta.Expense;
-import com.example.khatta.R;
+import com.example.khatta.database.Expense;
 
 import java.util.List;
 

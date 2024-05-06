@@ -9,11 +9,16 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
+
+import com.example.khatta.database.AppDatabase;
+import com.example.khatta.database.Expense;
 
 public class AddExpenseFragment extends Fragment {
 
     EditText usernameEditText, descriptionEditText, amountEditText;
     Button addSplitButton;
+    AppDatabase expenseDb;
 
     public AddExpenseFragment() {
     }
@@ -24,12 +29,12 @@ public class AddExpenseFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_add_expense_fragment, container, false);
 
-
         usernameEditText = view.findViewById(R.id.edit_Text_Username);
         descriptionEditText = view.findViewById(R.id.description_edit_text);
         amountEditText = view.findViewById(R.id.editTextAmount);
         addSplitButton = view.findViewById(R.id.add_split_button);
 
+        expenseDb = Room.databaseBuilder(requireContext(), AppDatabase.class, "ExpenseDB").build();
 
         addSplitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,15 +43,19 @@ public class AddExpenseFragment extends Fragment {
                 String description = descriptionEditText.getText().toString();
                 String amount = amountEditText.getText().toString();
 
-
                 if (username.isEmpty() || description.isEmpty() || amount.isEmpty()) {
                     Toast.makeText(getActivity(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                String message = "Expense added: \nUsername: " + username + "\nDescription: " + description + "\nAmount: " + amount;
-                Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+                Expense expense = new Expense();
+                expense.setName(username);
+                expense.setDescription(description);
+                expense.setAmount(String.valueOf(Double.parseDouble(amount)));
 
+//                addExpenseInBackground(expense);
+
+                // Clear input fields
                 usernameEditText.setText("");
                 descriptionEditText.setText("");
                 amountEditText.setText("");
@@ -55,4 +64,23 @@ public class AddExpenseFragment extends Fragment {
 
         return view;
     }
+
+//    public void addExpenseInBackground(Expense expense) {
+//        ExecutorService executorService = Executors.newSingleThreadExecutor();
+//        Handler handler = new Handler(Looper.getMainLooper());
+//
+//        executorService.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                expenseDb.getExpenseDAO().addExpense(expense);
+//
+//                handler.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        Toast.makeText(getContext(), "Expense added to database", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            }
+//        });
+//    }
 }

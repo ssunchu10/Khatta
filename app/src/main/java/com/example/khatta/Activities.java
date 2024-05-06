@@ -9,19 +9,18 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.khatta.Expense;
-import com.example.khatta.R;
+import com.example.khatta.database.Expense;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class activity extends Fragment {
+public class Activities extends Fragment {
 
     RecyclerView recyclerView;
     ExpenseAdapter expenseAdapter;
     List<Expense> expenseList;
 
-    public activity() {
+    public Activities() {
     }
 
     @Override

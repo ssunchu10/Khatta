@@ -2,28 +2,30 @@ package com.example.khatta;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class YourActivity extends AppCompatActivity {
+public class Fragment extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bottom_navigation_view);
+        TextView usernameTextView = findViewById(R.id.usernameTextView);
+        String username = getIntent().getStringExtra("username");
+        usernameTextView.setText(username);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            Fragment selectedFragment = null;
+            androidx.fragment.app.Fragment selectedFragment = null;
 
             if (item.getItemId() == R.id.menu_add_expense) {
                 selectedFragment = new AddExpenseFragment();
             } else if (item.getItemId() == R.id.menu_activity) {
-                selectedFragment = new activity();
+                selectedFragment = new Activities();
             } else if (item.getItemId() == R.id.menu_logout) {
                 logout();
                 return true;
@@ -39,7 +41,7 @@ public class YourActivity extends AppCompatActivity {
     }
 
     private void logout() {
-        Intent intent = new Intent(YourActivity.this, MainActivity.class);
+        Intent intent = new Intent(Fragment.this, MainActivity.class);
         startActivity(intent);
         finish();
     }
