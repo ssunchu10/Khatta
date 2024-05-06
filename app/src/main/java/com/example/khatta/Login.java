@@ -78,12 +78,16 @@ public class Login extends AppCompatActivity {
             }
             boolean finalCredentialsMatch = credentialsMatch;
             runOnUiThread(() -> {
-                if (finalCredentialsMatch) {
+                if (finalCredentialsMatch && flag == 1) {
                     Intent intent = new Intent(Login.this, Landing.class);
                     intent.putExtra("username", username);
                     intent.putExtra("admin", flag);
                     startActivity(intent);
-                } else {
+                } else if (finalCredentialsMatch && flag == 0){
+                    Intent intent = new Intent(Login.this, YourActivity.class);
+                    intent.putExtra("username", username);
+                    startActivity(intent);
+                }else {
                     Toast.makeText(Login.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
                 }
             });
