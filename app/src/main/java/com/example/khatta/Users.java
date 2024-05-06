@@ -2,32 +2,37 @@ package com.example.khatta;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Users extends AppCompatActivity {
-    private ListView listView;
+    private RecyclerView userListView;
     private String[] users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.users);
-        listView = findViewById(R.id.userList);
+        userListView = findViewById(R.id.UserList);
 
-        // Get intent extras here
         users = getIntent().getStringArrayExtra("users");
 
-        // Check if users is not null before using it
         if (users != null && users.length > 0) {
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
-                    android.R.layout.simple_list_item_1, users);
-            listView.setAdapter(arrayAdapter);
+            UserAdapter adapter = new UserAdapter(new ArrayList<>(Arrays.asList(users)));
+            userListView.setAdapter(adapter);
+            userListView.setLayoutManager(new LinearLayoutManager(this));
         } else {
-            Toast.makeText(this, "No users found", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("No Users Found");
+            builder.setMessage("No users were found in the list.");
+            builder.setPositiveButton("OK", (dialog, which) -> finish());
+            builder.show();
         }
     }
 
