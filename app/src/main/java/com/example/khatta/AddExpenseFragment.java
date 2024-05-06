@@ -53,9 +53,6 @@ public class AddExpenseFragment extends Fragment {
                 expense.setDescription(description);
                 expense.setAmount(String.valueOf(Double.parseDouble(amount)));
 
-//                addExpenseInBackground(expense);
-
-                // Clear input fields
                 usernameEditText.setText("");
                 descriptionEditText.setText("");
                 amountEditText.setText("");
@@ -64,23 +61,4 @@ public class AddExpenseFragment extends Fragment {
 
         return view;
     }
-
-//    public void addExpenseInBackground(Expense expense) {
-//        ExecutorService executorService = Executors.newSingleThreadExecutor();
-//        Handler handler = new Handler(Looper.getMainLooper());
-//
-//        executorService.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                expenseDb.getExpenseDAO().addExpense(expense);
-//
-//                handler.post(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        Toast.makeText(getContext(), "Expense added to database", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//            }
-//        });
-//    }
 }
